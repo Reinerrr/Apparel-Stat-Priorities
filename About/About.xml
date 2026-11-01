@@ -3,7 +3,7 @@
     <name>MultiApparel</name>
     <author>Reiner</author>
     <packageId>Reiner.MultiApparel</packageId>
-    <description>v 1.0.2 beta\n\nПозволяет выставлять приоритетные характеристики одежды для пешек: они автоматически будут стараться надевать в первую очередь одежду, которая будет повышать параметры, указанные как приоритетные.\nAllows you to set priority apparel stats for pawns: they will automatically prioritize wearing apparel that increases the stats specified as priority.</description>
+    <description>v 1.0.3 beta\n\nПозволяет выставлять приоритетные характеристики одежды для пешек: они автоматически будут стараться надевать в первую очередь одежду, которая будет повышать параметры, указанные как приоритетные.\nAllows you to set priority apparel stats for pawns: they will automatically prioritize wearing apparel that increases the stats specified as priority.</description>
     <supportedVersions>
         <li>1.6</li>
     </supportedVersions>
