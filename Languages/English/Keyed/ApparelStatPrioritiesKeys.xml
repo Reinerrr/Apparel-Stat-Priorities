@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <ApparelStatPriorities_PriorityLabel>Apparel priority</ApparelStatPriorities_PriorityLabel>
+  <ApparelStatPriorities_CloseInterfaceButton>Close</ApparelStatPriorities_CloseInterfaceButton>
+  <ApparelStatPriorities_HideOtherStatsButton>Hide other stats</ApparelStatPriorities_HideOtherStatsButton>
+  <ApparelStatPriorities_Tips>Note! 1) Priority order is irrelevant - only the number matters. 2) Hidden priorities remain active whether hidden or not.</ApparelStatPriorities_Tips>
+  <ApparelStatPriorities_LoadingWaiting>Loading stats...</ApparelStatPriorities_LoadingWaiting>
+  <ApparelStatPriorities_Colonist>Colonist</ApparelStatPriorities_Colonist>
+  <ApparelStatPriorities_PriorityCheckboxDescription>LMB: -1 (higher priority)\nRMB: +1 (lower priority)</ApparelStatPriorities_PriorityCheckboxDescription>  
+</LanguageData>
