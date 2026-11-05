@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModMetaData>
+    <name>Apparel Stat Priorities</name>
+    <author>Reiner</author>
+    <packageId>Reiner.ApparelStatPriorities</packageId>
+    <description>v 1.0.0\n\nПозволяет выставлять приоритетные характеристики одежды для пешек: они автоматически будут стараться надевать в первую очередь одежду, которая будет повышать параметры, указанные как приоритетные.\nAllows you to set priority apparel stats for pawns: they will automatically prioritize wearing apparel that increases the stats specified as priority.</description>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            <packageId>brrainz.harmony</packageId>
+            <displayName>Harmony</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+</ModMetaData>
