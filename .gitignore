@@ -1,0 +1,8 @@
+# Папки Visual Studio
+.vs/
+bin/
+obj/
+
+# Системный мусор
+Thumbs.db
+.DS_Store
