@@ -3,7 +3,7 @@
     <name>Apparel Stat Priorities</name>
     <author>Reiner</author>
     <packageId>Reiner.ApparelStatPriorities</packageId>
-    <description>v 1.0.0
+    <description>v 1.0.1
 	
 Позволяет выставлять приоритетные характеристики одежды для пешек: они автоматически будут стараться надевать в первую очередь одежду, которая будет повышать параметры, указанные как приоритетные.
 	
