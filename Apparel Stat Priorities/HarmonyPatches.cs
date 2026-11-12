@@ -57,17 +57,56 @@ namespace ApparelStatPriorities
     {
         public static void Postfix(Pawn pawn, Apparel ap, ref float __result)
         {
-            if (pawn.outfits == null || pawn.outfits.forcedHandler == null) return;
-
-            foreach (var worn in pawn.apparel.WornApparel)
+            if (pawn.outfits?.forcedHandler != null)
             {
-                if (pawn.outfits.forcedHandler.IsForced(worn) &&
-                    !ApparelUtility.CanWearTogether(ap.def, worn.def, pawn.RaceProps.body))
+                foreach (var worn in pawn.apparel.WornApparel)
                 {
-                    __result = -9999f;
-                    return;
+                    if (pawn.outfits.forcedHandler.IsForced(worn) &&
+                        !ApparelUtility.CanWearTogether(ap.def, worn.def, pawn.RaceProps.body))
+                    {
+                        __result = -9999f;
+                        return;
+                    }
                 }
             }
+
+            var manager = Current.Game.GetComponent<WorkRoleApparelManager>();
+            if (manager == null || manager.trackedStats == null) return;
+
+            float modGain = 0f;
+            if (ap.def.equippedStatOffsets != null)
+            {
+                foreach (var offset in ap.def.equippedStatOffsets)
+                {
+                    if (offset?.stat == null) continue;
+                    int weight = manager.GetWeight(pawn, offset.stat);
+
+                    if (weight < 5)
+                    {
+                        modGain += offset.value * (float)Math.Pow(5f - weight, 3f) * 100f;
+                    }
+                }
+            }
+            foreach (var worn in pawn.apparel.WornApparel)
+            {
+                if (!ApparelUtility.CanWearTogether(ap.def, worn.def, pawn.RaceProps.body))
+                {
+                    if (worn.def.equippedStatOffsets != null)
+                    {
+                        foreach (var offset in worn.def.equippedStatOffsets)
+                        {
+                            if (offset?.stat == null) continue;
+                            int weight = manager.GetWeight(pawn, offset.stat);
+
+                            if (weight < 5)
+                            {
+                                modGain -= offset.value * (float)Math.Pow(5f - weight, 3f) * 100f;
+                            }
+                        }
+                    }
+                }
+            }
+            __result += modGain;
         }
     }
 
@@ -151,7 +190,7 @@ namespace ApparelStatPriorities
                 __result = JobMaker.MakeJob(JobDefOf.Wear, bestApparel);
                 return false;
             }
-                return true;
+            return true;
         }
 
         private static float CalculateModScore(Apparel ap, Dictionary<StatDef, int> activeWeights)
@@ -207,7 +246,6 @@ namespace ApparelStatPriorities
             Pawn pawn = __instance.pawn;
             if (pawn == null || pawn.Dead) return true;
             if (pawn.outfits == null || pawn.outfits.forcedHandler == null) return true;
-
             if (!pawn.outfits.forcedHandler.IsForced(ap)) return true;
 
             var jobName = pawn?.jobs?.curJob?.def?.defName;
